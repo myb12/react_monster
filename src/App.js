@@ -1,6 +1,7 @@
 import  React, {Component } from 'react';
 import './App.css';
 import {CardList} from './components/card-list/card-list.component';
+import { SearchBox } from './components/search-box/search-box.component';
 
 class App extends Component{
 
@@ -24,9 +25,7 @@ class App extends Component{
     const filteredMonsters = monsters.filter(monster=>monster.name.toLowerCase().includes(searchFiled.toLowerCase()));
       return (
     <div className="App">
-      <input type="search" placeholder="Search Monsters" onChange={
-        (e)=> this.setState({searchFiled:e.target.value})
-        }/>
+        <SearchBox placeholder="Search Monsters" handleChange={ (e)=> this.setState({searchFiled:e.target.value})} />
         <CardList monsters={filteredMonsters}/>
     </div>
   );
